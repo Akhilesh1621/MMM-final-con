@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MMM - our team showcase</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla|Yeseva+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
+
+    <link rel="stylesheet" href="./assets/css/team.css">
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <section>
+        <nav>
+            <!--logo--------------->
+            <a href="index.html" class="logo">
+                <img src="./assets/images/m1.png" />
+
+            </a>
+
+            <!--menu-btn-------------->
+            <input class="menu-btn" type="checkbox" id="menu-btn">
+            <label class="menu-icon" for="menu-btn">
+                <span class="nav-icon"></span>
+            </label>
+            <!--menu-------------->
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#section-2">About us</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="#clients">Our clients</a></li>
+                <li><a href="team.html">Our team</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+            </ul>
+
+        </nav>
+    </section>
+    <!-- navbar end -->
+
+    <!-- team_body -->
+
+    <!-- partial:index.partial.html -->
+    <div class="team_body">
+        <div :class="['container', isSelected ? 'container-selected':'', isReady ? 'container-ready':'']" id="app">
+            <div class="team-container">
+                <div class="header">
+                    <h2 class="header-title">Our Team</h2>
+                </div>
+                <div class="person-list">
+                    <div class="person" v-for="(person,index) in persons" @click="selectPerson(index,$event)"><img class="person-img" :src="person.photo">
+                        <div class="person-details">
+                            <h2 class="person-title">{{person.name}}</h2>
+                            <p class="person-desc">{{person.title}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-detail">
+                <div class="team-detail-inner" v-if="isOk">
+                    <div class="team-detail-left">
+                        <div class="team-detail-photo"><img :src="selectedPersonData.photo" alt="">
+                        </div>
+                    </div>
+                    <div class="team-detail-right">
+                        <div class="team-detail-bio">
+                            <div class="team-detail-header">
+                                <h2 class="person-title">{{selectedPersonData.name}}</h2>
+                                <p class="person-desc">{{selectedPersonData.title}}</p>
+                                <div class="social">
+                                    <a :href="selectedPersonData.social.facebook" target="_blank" class="ion-social-facebook"></a>
+                                    <a :href="selectedPersonData.social.twitter" target="_blank" class="ion-social-twitter"></a>
+                                    <a href="selectedPersonData.social.linkedin" target="_blank" class="ion-social-linkedin"></a>
+                                </div>
+                            </div>
+                            <div class="team-detail-bio-content" v-html="selectedPersonData.bio">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- team-body-end -->
+
+    <!-- footer -->
+
+    <footer>
+        <div class="footer-inner">
+            <section class="footer-item">
+                <a href="#" class="logo">
+                    <img src="./assets/images/m1.png" />
+
+                </a>
+
+                <h2 class="bran-tag">We create possibilities <br>for the connected world.<br><b class="color">Be Bold.</b></h2>
+            </section>
+
+            <section class="footer-item">
+                <h3 class="exp-fo">Explore</h3>
+                <ul class="ul-list">
+                    <li><a class="li-a" href="#">Home</a></li>
+                    <li><a class="li-a" href="#">About</a></li>
+                    <li><a class="li-a" href="#">Capabilities</a></li>
+                    <li><a class="li-a" href="#">Careers</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-item">
+                <h3 class="exp-fo">Visit</h3>
+                <a class="li-a" href="#">
+                    <p class="li-p"> Envoy So. California</p>
+                    <p class="li-p"> 34 Tesla, Ste 100</p>
+                    <p class="li-p"> Irvine, Ca, USA 92618</p>
+                </a>
+
+                <!-- <h3 class="desktop">New Business</h3> -->
+                <p class="desktop li-p"><a class="li-a" href="#">engage@weareenvoy.com</a></p>
+                <p class="desktop li-p"><a class="li-a" href="#">949.333.3106</a></p>
+            </section>
+
+            <section class="footer-item">
+                <!-- <h3 class="exp-fo">New Business</h3> -->
+                <p class="li-p"><a class="li-a" href="#">Email us</a></p>
+                <p class="li-p"><a class="li-a" href="#">949.333.3106</a></p>
+            </section>
+
+            <section class="footer-item">
+                <h3 class="exp-fo">Follow</h3>
+                <ul class="ul-list">
+                    <li><a class="li-a" href="#">Instagram</a></li>
+                    <li><a class="li-a" href="#">Twitter</a></li>
+                    <li><a class="li-a" href="#">LinkedIn</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-item">
+                <h3 class="exp-fo">Legal</h3>
+                <ul class="ul-list">
+                    <li><a class="li-a" href="#">Terms</a></li>
+                    <li><a class="li-a" href="#">Privacy</a></li>
+                </ul>
+            </section>
+
+            <!-- <section class="footer-item">
+            <a class="li-a" href="#" class="footer-button">Next: About</a>
+        </section> -->
+        </div>
+
+
+    </footer>
+    <div class="cop">
+        &copy; Copyright <strong><span>Mad Marcketing Media</span></strong>. All Rights Reserved
+    </div>
+    <!-- footer-end -->
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.2.1/vue-resource.min.js'></script>
+    <script src="./assets/js/team.js"></script>
+
+</body>
+
+</html>
